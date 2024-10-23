@@ -16,7 +16,8 @@ data['HolidayEffect'].fillna(False, inplace=True)
 data['Friday'].fillna(False, inplace=True)
 
 # Convert 'Date' column to datetime
-data['Date'] = pd.to_datetime(data['Date'], format='%Y-%m-%d')
+data['Date'] = pd.to_datetime(data['Date'], dayfirst=False)
+
 
 # Extract features and target variable
 X = data.drop(columns=['RequiredBuses', 'Date','MaxPassengers','MinPassengers','AvgPassengers'])  # Drop the target and date columns
